@@ -1,41 +1,38 @@
 <!doctype html>
-<notebook>
-  <title>uchimata: getting started</title>
-  <script type="text/markdown">
-    # uchimata: getting started
+<notebook theme="air">
+  <title>uchimata</title>
+  <script id="1" type="text/markdown">
+    # uchimata
   </script>
-	<script type="module" pinned>
-    import * as uchi from "npm:uchimata";
-	</script>
-  <script type="module" pinned>
-const viewConfig = ({ 
-    scale: 0.005,     
-    color: {
-      field: "chr", //~ uses the 'chr' column in the Arrow table that defines the structure
-      colorScale: "spectral",
-    },
-    links: true,
-  });
-  
-  //~ create a scene
-  let chromatinScene = uchi.initScene();
-  chromatinScene = uchi.addStructureToScene(chromatinScene, model, viewConfig);
-
-  const [renderer, canvas] = uchi.display(chromatinScene, { alwaysRedraw: false});
-  
-  //~ ObservableHQ mechanism for clean-up after cell re-render
-  invalidation.then(() => renderer.endDrawing());
-
-  display(renderer.getCanvasElement());
-	// display(chs.initScene());
+  <script id="6" type="text/markdown">
+    ${textcolor('uchimata', 'LightSlateGray')} is a Javascript library for visualizing 3D models of genome structures. It aims to implement core functionality around rendering, and provide an expressive interface for binding 3D genome data to visual representations. It is especially designed to be reusable across a number of environments (in Observable, within web apps, or as a front-end for a Jupyter widget).
   </script>
-<script type="module" pinned>
-const urlStevens = "https://pub-5c3f8ce35c924114a178c6e929fc3ac7.r2.dev/Stevens-2017_GSM2219497_Cell_1_model_5.arrow";
-	</script>
-<script type="module" pinned>
-const model = await uchi.loadFromURL(urlStevens, {
-  center: true,
-  normalize: true,
-});
-	</script>
+  <script id="18" type="text/markdown">
+    The code is available at [github.com/hms-dbmi/uchimata](https://github.com/hms-dbmi/uchimata). ${textcolor('uchimata', 'LightSlateGray')} is still early in development. Reach out to me at if you’re interested in using the library in your projects and have any questions.
+  </script>
+  <script id="25" type="text/markdown">
+    For use in Python-based computational notebooks, check out [uchimata-py](https://github.com/hms-dbmi/uchimata-py).
+  </script>
+  <script id="8" type="text/markdown">
+    ## Examples
+  </script>
+  <script id="9" type="text/markdown">
+    ![screenshot from the simple-example](./img/simple-example.png)\
+    [Simple example](./simple-example.html)
+  </script>
+  <script id="37" type="text/html">
+    <a href=“./simple-example.html”>
+      <img src=“img/simple-example.png” />
+      <div>Simple example</div>
+    </a>
+  </script>
+  <script id="35" type="text/markdown" pinned="">
+    [Getting started](./getting-started.html)
+  </script>
+  <script id="20" type="text/markdown">
+    ## Appendix
+  </script>
+  <script id="12" type="module">
+    import {textcolor} from "observable:@observablehq/text-color-annotations-in-markdown"
+  </script>
 </notebook>
